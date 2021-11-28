@@ -2,7 +2,7 @@
 
 
 
-run demo.py去提取数据图片
+run load_data.py去提取数据图片
 
 
 

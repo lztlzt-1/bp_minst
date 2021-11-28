@@ -41,6 +41,7 @@ def train_model():
         min1 = min(date1)
         date1 = date1 / (max1 - min1)
         # print(date1)
+        # print(i)
         train_data = np.hstack((train_data, date1))
     # print(np.shape(train_data))
     train_data = train_data.T
@@ -65,7 +66,7 @@ def predict(bp):
             train_label.append(thislabel)
 
 
-    for i in range(1, 60001):
+    for i in range(1, 600):
         date = Image.open('train_img/{}.jpg'.format(i))
         train_data = np.array(date)
         train_data = train_data.reshape((28 * 28 * 3, 1))
@@ -78,7 +79,9 @@ def predict(bp):
         # print(i, pre)
         if pre==trains[i]:
             sum = sum + 1
-    print("准确率：" + str(sum/60000) )
+        if i%100==0 :
+            print(i)
+    print("准确率：" + str(sum/600) )
 
 if __name__ == '__main__':
     # train_model()
